@@ -28,11 +28,14 @@ module.exports = async function (fastify, opts) {
   });
 
   if (kafkaConfig) {
+    fastify.log.info("%j", kafkaConfig);
     try {
       fastify.register(Kafka, kafkaConfig);
     } catch (err) {
       fastify.log.error("%j", err);
     }
+  } else {
+    fastify.log.warn("kafkaConfig empty");
   }
 
   fastify.register(WebSocket, {

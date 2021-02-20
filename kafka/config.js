@@ -26,7 +26,7 @@ if (KAFKA_BOOTSTRAP_SERVER) {
     commonConfig = {
       // "debug": "all",
       // "debug": "security,broker",
-      "metadata.broker.list": KAFKA_BOOTSTRAP_SERVER,
+      "bootstrap.servers": KAFKA_BOOTSTRAP_SERVER,
     };
   }
   config = {
